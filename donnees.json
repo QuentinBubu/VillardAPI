@@ -1,0 +1,64 @@
+{
+    "Vertes": {
+        "Lilas": 2,
+        "Marguerite bas": 2,
+        "Violette": 0,
+        "Daim": 2,
+        "Marmotte": 2,
+        "Marmotton bas": 0,
+        "Marmotton haut": 0,
+        "Salamandre bas": 0,
+        "Salamandre haut": 2,
+        "Piste aux etoiles": 0,
+        "Clots": 0,
+        "La traverse": 2
+    },
+    "Bleues": {
+        "Marguerite": 2,
+        "Narcisse bas": 2,
+        "Narcisse milieu": 2,
+        "Perce neige": 2,
+        "Cerf bleu": 0,
+        "Chevreuil bas": 2,
+        "Chevreuil haut": 2,
+        "Bourgon": 0,
+        "Bouquetin": 2,
+        "Eterlou": 2,
+        "Perdrix Bl bas": 2,
+        "Perdrix Bl haut": 2
+    },
+    "Rouges": {
+        "Edelweiss": 2,
+        "Edelweiss 2": 0,
+        "Narcisse Rouge": 2,
+        "Cerf Rouge": 0,
+        "Canyon bas": 0,
+        "Canyon haut": 2,
+        "Coq 2 bas": 0,
+        "Coq bas": 2,
+        "Coq 2 haut": 2,
+        "Coq milieu": 0,
+        "Coq haut": 2,
+        "Loup": 0,
+        "Epervier": 0,
+        "Loup bas": 0,
+        "Loup haut": 0,
+        "Loup milieu": 2
+    },
+    "Noirs": {
+        "Choucas": 2,
+        "Grand couloir": 2,
+        "Rhodo bas": 0,
+        "Rhodo haut": 0,
+        "Carolle Montillet": 0,
+        "Chamois": 0,
+        "Emile Allais": 0,
+        "Escalier": 0,
+        "Livere Blanc": 0,
+        "Lievre Blanc bas": 0
+    },
+    "Liaisons": {
+        "Retour village": 0,
+        "Villard Correncon": 2
+    }
+}
