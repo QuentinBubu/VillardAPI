@@ -1,72 +1,76 @@
 <?php
-// 0 = ferme; 1 = ouvert; 2 = en prev
 
+header('Content-type: application/json');
+
+$page = new DOMDocument();
+
+// 0 = ferme; 1 = ouvert; 2 = en prev; 3 = ERREUR
 $pistes = [
     "Vertes" => [
-        "Lilas" => 0,
-        "Marguerite bas" => 0,
-        "Violette" => 0,
-        "Daim" => 0,
-        "Marmotte" => 0,
-        "Marmotton bas" => 0,
-        "Marmotton haut" => 0,
-        "Salamandre bas" => 0,
-        "Salamandre haut" => 0,
-        "Piste aux etoiles" => 0,
-        "Clots" => 0,
-     "La traverse" => 0
+        "Lilas" => 3,
+        "Marguerite bas" => 3,
+        "Violette" => 3,
+        "Daim" => 3,
+        "Marmotte" => 3,
+        "Marmotton bas" => 3,
+        "Marmotton haut" => 3,
+        "Salamandre bas" => 3,
+        "Salamandre haut" => 3,
+        "Piste aux etoiles" => 3,
+        "Clots" => 3,
+     "La traverse" => 3
     ],
 
     "Bleues" => [
-        "Marguerite" => 0,
-        "Narcisse bas" => 0,
-        "Narcisse milieu" => 0,
-        "Perce neige" => 0,
-        "Cerf bleu" => 0,
-        "Chevreuil bas" => 0,
-        "Chevreuil haut" => 0,
-        "Bourgon" => 0,
-        "Bouquetin" => 0,
-        "Eterlou" => 0,
-        "Perdrix Bl bas" => 0,
-        "Perdrix Bl haut" => 0
+        "Marguerite" => 3,
+        "Narcisse bas" => 3,
+        "Narcisse milieu" => 3,
+        "Perce neige" => 3,
+        "Cerf bleu" => 3,
+        "Chevreuil bas" => 3,
+        "Chevreuil haut" => 3,
+        "Bourgon" => 3,
+        "Bouquetin" => 3,
+        "Eterlou" => 3,
+        "Perdrix Bl bas" => 3,
+        "Perdrix Bl haut" => 3
     ],
 
     "Rouges" => [
-        "Edelweiss" => 0,
-        "Edelweiss 2" => 0,
-        "Narcisse Rouge" => 0,
-        "Cerf Rouge" => 0,
-        "Canyon bas" => 0,
-        "Canyon haut" => 0,
-        "Coq 2 bas" => 0,
-        "Coq bas" => 0,
-        "Coq 2 haut" => 0,
-        "Coq milieu" => 0,
-        "Coq haut" => 0,
-        "Loup" => 0,
-        "Epervier" => 0,
-        "Loup bas" => 0,
-        "Loup haut" => 0,
-        "Loup milieu" => 0
+        "Edelweiss" => 3,
+        "Edelweiss 2" => 3,
+        "Narcisse Rouge" => 3,
+        "Cerf Rouge" => 3,
+        "Canyon bas" => 3,
+        "Canyon haut" => 3,
+        "Coq 2 bas" => 3,
+        "Coq bas" => 3,
+        "Coq 2 haut" => 3,
+        "Coq milieu" => 3,
+        "Coq haut" => 3,
+        "Loup" => 3,
+        "Epervier" => 3,
+        "Loup bas" => 3,
+        "Loup haut" => 3,
+        "Loup milieu" => 3
     ],
 
     "Noirs" =>[
-        "Choucas" => 0,
-        "Grand couloir" => 0,
-        "Rhodo bas" => 0,
-        "Rhodo haut" => 0,
-        "Carolle Montillet" => 0,
-        "Chamois" => 0,
-        "Emile Allais" => 0,
-        "Escalier" => 0,
-        "Livere Blanc" => 0,
-        "Lievre Blanc bas" => 0
+        "Choucas" => 3,
+        "Grand couloir" => 3,
+        "Rhodo bas" => 3,
+        "Rhodo haut" => 3,
+        "Carolle Montillet" => 3,
+        "Chamois" => 3,
+        "Emile Allais" => 3,
+        "Escalier" => 3,
+        "Livere Blanc" => 3,
+        "Lievre Blanc bas" => 3
     ],
 
     "Liaisons" => [
-        "Retour village" => 0,
-        "Villard Correncon" => 0
+        "Retour village" => 3,
+        "Villard Correncon" => 3
     ]
 ];
 
@@ -74,16 +78,17 @@ $pistes = [
 //$donnes = file_get_contents("https://www.villarddelans.com/hiver/pistes.html#.XgdWu0dKhPY");
 $donnes = file_get_contents("liste_pistes.txt");
 
+$donnes = file_get_contents("https://web.archive.org/web/20180203002330if_/https://www.villarddelans.com/hiver/pistes.html#.WnUBDGj7RPY");
+
+$donnes = utf8_encode($donnes);
+
+$page->loadHTML($donnes);
+
+file_put_contents('liste_pistes2.txt', $donnes);
+
 $donnes2 = str_replace("<", "@", $donnes);
-
-/*$arr = explode("@h2>DOMAINE ALPIN VILLARD DE LANS / CORRENCON EN VERCORS@/h2>", $donnes2, 2);
-$first = $arr[1];
-
-$arr = explode("@h2>HAMEAU DES RAMBINS / Domaine débutant des Rambins-Corrençon village@/h2>", $first, 2);
-$text_final = $arr[0];
-
-echo $text_final;*/
 $text_final = $donnes2;
+
 for ($i = -1; $i != 15; $i++) {
     $donnes_trait = $text_final;
     $donnes_trait2 = @explode(strtoupper(array_keys($pistes['Vertes'])[$i]), $donnes_trait);
@@ -151,6 +156,4 @@ for ($i = -1; $i != 2; $i++) {
 
 $contenu_json = json_encode($pistes);
 file_put_contents("donnees.json", $contenu_json);
-header('Content-type: application/json');
-echo  $contenu_json  ;
-?>
+echo $contenu_json;
