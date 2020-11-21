@@ -2,8 +2,6 @@
 
 header('Content-type: application/json');
 
-$page = new DOMDocument();
-
 // 0 = ferme; 1 = ouvert; 2 = en prev; 3 = ERREUR
 $pistes = [
     "Vertes" => [
@@ -81,8 +79,6 @@ $donnes = file_get_contents("liste_pistes.txt");
 $donnes = file_get_contents("https://web.archive.org/web/20180203002330if_/https://www.villarddelans.com/hiver/pistes.html#.WnUBDGj7RPY");
 
 $donnes = utf8_encode($donnes);
-
-$page->loadHTML($donnes);
 
 file_put_contents('liste_pistes2.txt', $donnes);
 
