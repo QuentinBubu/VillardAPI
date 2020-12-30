@@ -53,7 +53,7 @@ $pistes = [
         "Loup milieu" => 3
     ],
 
-    "Noirs" =>[
+    "Noires" =>[
         "Choucas" => 3,
         "Grand couloir" => 3,
         "Rhodo bas" => 3,
