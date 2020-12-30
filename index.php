@@ -126,14 +126,14 @@ for ($i = -1; $i != 16; $i++) {
 
 for ($i = -1; $i != 10; $i++) {
     $donnes_trait = $text_final;
-    $donnes_trait2 = @explode(strtoupper(array_keys($pistes['Noirs'])[$i]), $donnes_trait);
+    $donnes_trait2 = @explode(strtoupper(array_keys($pistes['Noires'])[$i]), $donnes_trait);
     $donnes_trait2 = @explode("@/li>", $donnes_trait2[1]);
     if (strpos($donnes_trait2[0], "Ouvert")) {
-        $pistes['Noirs'][array_keys($pistes['Noirs'])[$i]] = 1;
+        $pistes['Noires'][array_keys($pistes['Noires'])[$i]] = 1;
     } elseif (strpos($donnes_trait2[0], "Fermé")) {
-        $pistes['Noirs'][array_keys($pistes['Noirs'])[$i]] = 0;
+        $pistes['Noires'][array_keys($pistes['Noires'])[$i]] = 0;
     } elseif (strpos($donnes_trait2[0], "En prévision")) {
-        $pistes['Noirs'][array_keys($pistes['Noirs'])[$i]] = 2;
+        $pistes['Noires'][array_keys($pistes['Noires'])[$i]] = 2;
     }
 }
 
